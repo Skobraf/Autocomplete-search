@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Autocomplete from './Autocomplete';
 
@@ -9,11 +8,26 @@ function App() {
       <Autocomplete
         options={[
           "Papaya",
+          "Football",
+          "Macron",
+          "LifeStyle",
           "Persimmon",
+          "Mercedes",
+          "Renault",
           "Paw Paw",
+          "Fishing",
+          "Outlaw",
+          "Mathematics",
           "Prickly Pear",
+          "JavaScript",
+          "React",
           "Peach",
+          "Redux",
+          "Node",
           "Pomegranate",
+          "Tomato",
+          "Fruits",
+          "Christmas",
           "Pineapple"
         ]}
       />

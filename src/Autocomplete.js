@@ -22,11 +22,12 @@ class Autocomplete extends Component {
         });
     }
     onClick = (e) => {
+        const userInput = e.target.innerText;
         this.setState({
           activeOption: 0,
           filteredOptions: [],
           showOptions: false,
-          userInput: e.currentTarget.innerText
+          userInput
         });
       };
     onKeyDown = (e) => {
@@ -41,12 +42,12 @@ class Autocomplete extends Component {
           if (activeOption === 0) {
             return;
           }
-          this.setState({ activeOption: activeOption - 1 });
+          this.setState(prev => ({ activeOption: prev.activeOption - 1 }));
         } else if (e.keyCode === 40) { // DOWN ARROW.
           if (activeOption === filteredOptions.length - 1) {
             return;
           }
-          this.setState({ activeOption: activeOption + 1 });
+          this.setState( prev => ({ activeOption: prev.activeOption + 1 }));
         }
       };
     render() {
@@ -62,13 +63,18 @@ class Autocomplete extends Component {
             if (filteredOptions.length) {
               optionList = (
                 <ul className="options">
-                  {filteredOptions.map((optionName, index) => {
+                  {filteredOptions.map(
+                      (optionName, index) => {
                     let className;
                     if (index === activeOption) {
                       className = 'option-active';
                     }
                     return (
-                      <li className={className} key={optionName} onClick={onClick}>
+                      <li
+                        className={className}
+                        key={optionName}
+                        onClick={onClick}
+                      >
                         {optionName}
                       </li>
                     );
